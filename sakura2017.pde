@@ -27,7 +27,7 @@ void emit() {
   p.pos.y = random(0, height);
   p.scale = random(0.1, 0.3);
   p.v.x = random(-0.2, -0.1) * (p.scale*10);
-  p.v.y = random(-0.1, 0.1);
+  p.v.y = random(-0.2, 0.2);
   p.d_th = random(-0.005, 0.005);
   sakuras.add(p);
 }
@@ -43,6 +43,12 @@ void draw() {
 
   for (SakuraParticle p : sakuras) {
     p.draw();
+  }
+  
+  Iterator it = sakuras.iterator();
+  while(it.hasNext()){
+    SakuraParticle p = (SakuraParticle)it.next();
+    if(p.pos.x < -50) it.remove();
   }
 }
 
