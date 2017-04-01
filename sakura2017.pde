@@ -21,13 +21,14 @@ void setup() {
 
 void emit() {
   if (frameCount % 20 != 0) return;
-  
+
   SakuraParticle p = new SakuraParticle();
-  p.pos.x = random(0, width);
-  p.pos.y = -50;
-  p.v.x = random(-0.5, 0.5);
-  p.v.y = random(0.1, 0.5);
-  p.scale = 0.25;
+  p.pos.x = width + 30;
+  p.pos.y = random(0, height);
+  p.scale = random(0.1, 0.3);
+  p.v.x = random(-0.2, -0.1) * (p.scale*10);
+  p.v.y = random(-0.1, 0.1);
+  p.d_th = random(-0.005, 0.005);
   sakuras.add(p);
 }
 
